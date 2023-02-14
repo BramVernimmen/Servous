@@ -474,6 +474,7 @@ MonoBehaviour:
   m_CounterScore: {fileID: 1028428206672409023}
   m_CounterTime: {fileID: 1593190496607207352}
   m_MaxTimeSeconds: 60
+  m_MenuPrefab: {fileID: 0}
 --- !u!1 &7204275498871044408
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +487,7 @@ GameObject:
   - component: {fileID: 4026616173025893934}
   - component: {fileID: 2777989128355748839}
   m_Layer: 5
-  m_Name: Minimap_Background
+  m_Name: Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +520,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7204275498871044408}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &2777989128355748839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,11 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  m_Material: {fileID: 2100000, guid: 670d308b14c750e4e836aac831e2d321, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

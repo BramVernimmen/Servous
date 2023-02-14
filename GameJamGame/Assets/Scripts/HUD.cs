@@ -57,7 +57,6 @@ public class HUD : MonoBehaviour
         {
             // update timer
             m_Timer -= Time.deltaTime;
-            m_Score += 1;
 
             if (m_Timer < 0)
                 m_Timer = 0;
