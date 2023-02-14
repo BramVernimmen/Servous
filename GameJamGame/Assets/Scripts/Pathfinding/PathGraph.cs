@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathGraph : MonoBehaviour
 {
     private List<PathNode> m_PathGraph;
+    private PathNode m_PrevPathNode = null;
     // Start is called before the first frame update
 
     #region SINGLETON
@@ -68,12 +69,13 @@ public class PathGraph : MonoBehaviour
 
     public Vector3 GetPathPosition(Vector3 currentPos, float acceptanceRadiusSq, Vector3 dest)
     {
+        float distToDestSq = (dest - currentPos).sqrMagnitude;
         float closestNodeDistSq = float.MaxValue;
         PathNode currentNode = null;
         foreach(PathNode node in m_PathGraph)
-        {
+        {        
             float distanceSq = (node.transform.position - currentPos).sqrMagnitude;
-            if (distanceSq < closestNodeDistSq)
+            if (distanceSq < closestNodeDistSq && distanceSq < distToDestSq)
             {
                 currentNode = node;
                 closestNodeDistSq = distanceSq;
@@ -84,9 +86,13 @@ public class PathGraph : MonoBehaviour
         {
             return dest;
         }
-        if (closestNodeDistSq > acceptanceRadiusSq)
+        if (closestNodeDistSq > acceptanceRadiusSq && m_PrevPathNode != currentNode)
         {
             return currentNode.transform.position;
+        }
+        else
+        {
+            m_PrevPathNode = currentNode;
         }
 
         closestNodeDistSq = float.MaxValue;
@@ -101,7 +107,7 @@ public class PathGraph : MonoBehaviour
             }
         }
 
-        if (nextNode == null || (dest - currentPos).sqrMagnitude <= (nextNode.transform.position - currentPos).sqrMagnitude)
+        if (nextNode == null || distToDestSq <= (nextNode.transform.position - currentPos).sqrMagnitude)
         {
             return dest;
         }
