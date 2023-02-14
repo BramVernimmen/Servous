@@ -26,13 +26,15 @@ public class MovementBehaviour : MonoBehaviour
 
     private void Start()
     {
-        m_Agent.isStopped = true; //Agent start not being able to move
+        m_Agent.isStopped = false; //Agent start not being able to move
 
         m_Agent.speed = speed; //Setting the movement speed
     }
 
     private void Update()
     {
+        Vector3 nextNodePos = PathGraph.Instance.GetPathPosition(m_Agent.transform.position, 5.0f, m_GoalPosition);         
+
         tempPositionSetting(); //temp way of setting a destination
 
         if (Input.GetButtonDown("Move")) //Enable or dissable the movement of the agent
@@ -40,7 +42,10 @@ public class MovementBehaviour : MonoBehaviour
             m_Agent.isStopped = !m_Agent.isStopped;
         }
 
-        m_Agent.SetDestination(m_GoalPosition); //Setting the destination
+        print(nextNodePos);
+        print(m_GoalPosition);
+
+        m_Agent.SetDestination(nextNodePos); //Setting the destination
     }
 
     public bool hasArrived() //Check if the player has reached the end of the path
