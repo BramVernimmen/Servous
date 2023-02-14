@@ -20,7 +20,7 @@ public class MovementBehaviour : MonoBehaviour
     //temp for testing
     public Camera cam;
 
-    [Range(0.0f, 15.0f)] //Setting the speed in inspector with a slider with range 0 - 15
+    [Range(0.0f, 10000.0f)] //Setting the speed in inspector with a slider with range 0 - 15
     public float speed = 1.0f;
 
 
@@ -33,7 +33,7 @@ public class MovementBehaviour : MonoBehaviour
 
     private void Update()
     {
-        Vector3 nextNodePos = PathGraph.Instance.GetPathPosition(m_Agent.transform.position, 5.0f, m_GoalPosition);         
+        Vector3 nextNodePos = PathGraph.Instance.GetPathPosition(m_Agent.transform.position, 5.0f, m_GoalPosition);
 
         tempPositionSetting(); //temp way of setting a destination
 
@@ -45,7 +45,7 @@ public class MovementBehaviour : MonoBehaviour
         print(nextNodePos);
         print(m_GoalPosition);
 
-        m_Agent.SetDestination(nextNodePos); //Setting the destination
+        m_Agent.SetDestination(nextNodePos); //Setting the destination   
     }
 
     public bool hasArrived() //Check if the player has reached the end of the path
@@ -63,6 +63,7 @@ public class MovementBehaviour : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log("Raycast");
                 m_GoalPosition = hit.point;
             }
         }
