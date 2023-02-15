@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PauzeMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
+
     public void OnClickContinue()
     {
         // TODO: spawn pauze menu
