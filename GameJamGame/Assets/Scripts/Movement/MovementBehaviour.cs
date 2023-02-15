@@ -33,19 +33,20 @@ public class MovementBehaviour : MonoBehaviour
 
     private void Update()
     {
-        Vector3 nextNodePos = PathGraph.Instance.GetPathPosition(m_Agent.transform.position, 5.0f, m_GoalPosition);
-
         tempPositionSetting(); //temp way of setting a destination
-
-        if (Input.GetButtonDown("Move")) //Enable or dissable the movement of the agent
+        if (HasArrivedAtNode(transform.position, m_Agent.destination, 5.0f))
         {
-            m_Agent.isStopped = !m_Agent.isStopped;
+            Vector3 nextNodePos = PathGraph.Instance.GetNextPathPoint(m_Agent.transform.position, 5.0f, m_GoalPosition);
+            if (Input.GetButtonDown("Move")) //Enable or dissable the movement of the agent
+            {
+                m_Agent.isStopped = !m_Agent.isStopped;
+            }
+
+            //print(nextNodePos);
+            //print(m_GoalPosition);
+
+            m_Agent.SetDestination(nextNodePos); //Setting the destination   
         }
-
-        print(nextNodePos);
-        print(m_GoalPosition);
-
-        m_Agent.SetDestination(nextNodePos); //Setting the destination   
     }
 
     public bool hasArrived() //Check if the player has reached the end of the path
@@ -67,6 +68,11 @@ public class MovementBehaviour : MonoBehaviour
                 m_GoalPosition = hit.point;
             }
         }
+    }
+
+    private bool HasArrivedAtNode(Vector3 currentPos, Vector3 nodePos, float acceptanceRadiusSq)
+    {
+        return (currentPos - nodePos).sqrMagnitude <= acceptanceRadiusSq;
     }
 
 }

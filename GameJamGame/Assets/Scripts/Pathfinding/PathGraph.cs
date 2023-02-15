@@ -6,7 +6,6 @@ using UnityEngine;
 public class PathGraph : MonoBehaviour
 {
     private List<PathNode> m_PathGraph;
-    private PathNode m_PrevPathNode = null;
     // Start is called before the first frame update
 
     #region SINGLETON
@@ -67,7 +66,7 @@ public class PathGraph : MonoBehaviour
         m_PathGraph.Add(node);  
     }
 
-    public Vector3 GetPathPosition(Vector3 currentPos, float acceptanceRadiusSq, Vector3 dest)
+    public Vector3 GetNextPathPoint(Vector3 currentPos, float acceptanceRadiusSq, Vector3 dest)
     {
         float distToDestSq = (dest - currentPos).sqrMagnitude;
         float closestNodeDistSq = float.MaxValue;
@@ -75,24 +74,16 @@ public class PathGraph : MonoBehaviour
         foreach(PathNode node in m_PathGraph)
         {        
             float distanceSq = (node.transform.position - currentPos).sqrMagnitude;
-            if (distanceSq < closestNodeDistSq && distanceSq < distToDestSq)
+            if (distanceSq < closestNodeDistSq && distanceSq > acceptanceRadiusSq)
             {
                 currentNode = node;
                 closestNodeDistSq = distanceSq;
             }
         }
 
-        if (currentNode == null)
+        if (currentNode == null || distToDestSq < closestNodeDistSq)
         {
             return dest;
-        }
-        if (closestNodeDistSq > acceptanceRadiusSq && m_PrevPathNode != currentNode)
-        {
-            return currentNode.transform.position;
-        }
-        else
-        {
-            m_PrevPathNode = currentNode;
         }
 
         closestNodeDistSq = float.MaxValue;
