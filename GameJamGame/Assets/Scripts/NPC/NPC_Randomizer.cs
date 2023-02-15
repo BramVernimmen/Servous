@@ -9,6 +9,8 @@ public class NPC_Randomizer : MonoBehaviour
 
     void Start()
     {
+        Random.InitState((int)System.DateTime.Now.Ticks);
+
         int random = UnityEngine.Random.Range(0, m_ListSkins.Count);
 
         for(int i = 0; i < m_ListSkins.Count; i++)
