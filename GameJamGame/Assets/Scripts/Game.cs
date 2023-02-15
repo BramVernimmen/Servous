@@ -8,6 +8,9 @@ public class Game : MonoBehaviour
     private int m_StartingDifficulty = 1;
 
     private int m_Score;
+    private bool m_IsPaused = false;
+
+    private const string PAUSEBUTTON = "Pause";
 
     public int Score
     {
@@ -65,6 +68,11 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown(PAUSEBUTTON))
+        {
+            m_IsPaused = !m_IsPaused;
+            Debug.Log("Paused");
+        }
     }
     
     public void OnDestinationArrival()
