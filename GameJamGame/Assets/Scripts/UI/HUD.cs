@@ -21,7 +21,7 @@ public class HUD : MonoBehaviour
     int m_Highscore = 0;
 
     GameObject m_MenuObject = null;
-    Menu m_Menu = null;
+    EndMenu m_Menu = null;
     bool m_InMenu = false;
 
     // Start is called before the first frame update
@@ -101,7 +101,7 @@ public class HUD : MonoBehaviour
 
                 // spawn menu
                 m_MenuObject = Instantiate(m_MenuPrefab);
-                m_Menu = m_MenuObject.GetComponent<Menu>();
+                m_Menu = m_MenuObject.GetComponent<EndMenu>();
                 m_Menu.Initialize(m_Score, m_Highscore);
                 m_InMenu = true;
             }
