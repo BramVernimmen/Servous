@@ -9,7 +9,7 @@ public class NPC_Randomizer : MonoBehaviour
 
     void Start()
     {
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        
 
         int random = UnityEngine.Random.Range(0, m_ListSkins.Count);
 

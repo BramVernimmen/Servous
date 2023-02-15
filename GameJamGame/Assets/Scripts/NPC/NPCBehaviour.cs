@@ -21,6 +21,8 @@ public class NPCBehaviour : MonoBehaviour
     [Range(0.0f, 2.0f)]
     public int m_SitState;
 
+    float m_RandomWaitTime;
+    bool m_IsIdle = true;
 
     void Update()
     {
@@ -39,5 +41,33 @@ public class NPCBehaviour : MonoBehaviour
         m_Animator.SetBool("Sitting", m_IsSitting);
         m_Animator.SetFloat("Speed", m_Speed);
         m_Animator.SetInteger("SittingState", m_SitState);
+
+        if(m_RandomWaitTime > 0)
+        {
+            m_RandomWaitTime -= Time.deltaTime;
+        }
+
+
+        if(m_RandomWaitTime <= 0 && m_IsIdle == true)
+        {
+            //12 different animations -- pick random if at idle state and timer is done
+            m_IsIdle = false;
+            m_Animator.ResetTrigger("moveBackToIdle");
+            int random = Random.Range(0, 12);
+            m_SitState = random;
+        }
+
+        if(m_Animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1 && m_IsIdle == false)
+        {
+            m_Animator.SetTrigger("moveBackToIdle");
+            m_IsIdle = true;
+
+            m_RandomWaitTime = Random.Range(5, 25);
+        }
+
     }
+
+
+
+
 }
