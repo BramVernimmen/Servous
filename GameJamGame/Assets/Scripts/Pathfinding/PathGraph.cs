@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathGraph : MonoBehaviour
 {
     private List<PathNode> m_PathGraph;
+    private List<List<DestinationNode>> m_Destinations;
     // Start is called before the first frame update
 
     #region SINGLETON
@@ -47,11 +48,32 @@ public class PathGraph : MonoBehaviour
             Destroy(gameObject);
         }
 
-        m_PathGraph= new List<PathNode>();
+        m_PathGraph = new List<PathNode>();
+        m_Destinations = new List<List<DestinationNode>>();
+        for (int i = 0; i < 5; ++i)
+        {
+            m_Destinations.Add(new List<DestinationNode>());
+        }
     }
 
     #endregion
 
+
+    public void RegisterDestination(DestinationNode node)
+    {
+        if (node)
+        {
+            m_Destinations[node.Difficulty].Add(node);
+        }
+    }
+
+    public void UnregisterDestination(DestinationNode node)
+    {
+        if (node)
+        {
+            m_Destinations[node.Difficulty].Remove(node);
+        }
+    }
 
     public void RegisterNode(PathNode node)
     {
@@ -64,6 +86,12 @@ public class PathGraph : MonoBehaviour
     public void UnregisterNode(PathNode node)
     {       
         m_PathGraph.Add(node);  
+    }
+
+    public Vector3 GetRandomDestinationForDifficulty(int difficulty)
+    {
+        int rand = Random.Range(0, m_Destinations.Count);
+        return m_Destinations[difficulty][rand].transform.position;
     }
 
     public Vector3 GetNextPathPoint(Vector3 currentPos, float acceptanceRadiusSq, Vector3 dest)

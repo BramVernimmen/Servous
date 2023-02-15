@@ -18,7 +18,7 @@ public class PathNode : MonoBehaviour
     private void Awake()
     {
         m_Nodes = new List<PathNode>();
-        foreach(var nodeObj in m_NodeObjects)
+        foreach (var nodeObj in m_NodeObjects)
         {
             if (!nodeObj) continue;
             PathNode node = nodeObj.GetComponent<PathNode>();
