@@ -22,8 +22,8 @@ public class HandMovement : MonoBehaviour
 
     void HandleMovementInput()
     {
-        float xInput = -Input.GetAxis("Mouse Y") * Sensitivity;
-        float yInput = Input.GetAxis("Mouse X") * Sensitivity;
+        float xInput = -Input.GetAxis("Mouse Y") * Sensitivity * Time.timeScale;
+        float yInput = Input.GetAxis("Mouse X") * Sensitivity * Time.timeScale;
         var previousRotation = Root.transform.localRotation;
         var rotation = Root.transform.localRotation;
         rotation *= Quaternion.Euler(xInput, 0.0f, yInput);
