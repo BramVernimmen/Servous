@@ -17,18 +17,16 @@ public class HUD : MonoBehaviour
 
     // variables
     float m_Timer = 0;
-    int m_Score = 0;
     int m_Highscore = 0;
 
     GameObject m_MenuObject = null;
-    Menu m_Menu = null;
+    EndMenu m_Menu = null;
     bool m_InMenu = false;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Timer = m_MaxTimeSeconds;
-        m_Score = 0;
     }
 
     // Update is called once per frame
@@ -50,7 +48,8 @@ public class HUD : MonoBehaviour
                 m_Menu = null;
                 m_InMenu = false;
 
-                // TODO: Reset Game
+                // reset Game
+                Game.Instance.StartNewGame();
             }
         }
         else
@@ -83,10 +82,11 @@ public class HUD : MonoBehaviour
                 m_CounterTime.text = timerText;
             }
 
-            // TODO: update score
+            int score = Game.Instance.Score;
+            // update score
             if (m_CounterScore != null)
             {
-                m_CounterScore.text = m_Score.ToString();
+                m_CounterScore.text = score.ToString();
             }
 
             // check game end
@@ -96,13 +96,13 @@ public class HUD : MonoBehaviour
                 Time.timeScale = 0;
 
                 // update highscore
-                if (m_Score > m_Highscore)
-                    m_Highscore = m_Score;
+                if (score > m_Highscore)
+                    m_Highscore = score;
 
                 // spawn menu
                 m_MenuObject = Instantiate(m_MenuPrefab);
-                m_Menu = m_MenuObject.GetComponent<Menu>();
-                m_Menu.Initialize(m_Score, m_Highscore);
+                m_Menu = m_MenuObject.GetComponent<EndMenu>();
+                m_Menu.Initialize(score, m_Highscore);
                 m_InMenu = true;
             }
         }
@@ -111,6 +111,5 @@ public class HUD : MonoBehaviour
     void ResetHud()
     {
         m_Timer = m_MaxTimeSeconds;
-        m_Score = 0;
     }
 }

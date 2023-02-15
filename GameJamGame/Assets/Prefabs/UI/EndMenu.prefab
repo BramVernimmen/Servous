@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 728985652121414405}
   - component: {fileID: 5825994979893863465}
   m_Layer: 0
-  m_Name: Menu
+  m_Name: EndMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,8 +338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TextScore: {fileID: 4036032508374541189}
   m_TextHighscore: {fileID: 1413210189971997763}
-  m_ButtonRetry: {fileID: 2365982390247221743}
-  m_ButtonQuit: {fileID: 3712022305234080405}
 --- !u!1 &2625940995569238828
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,10 +534,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_HorizontalAxis: Mouse X
+  m_VerticalAxis: Mouse Y
+  m_SubmitButton: Empty
+  m_CancelButton: Empty
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
