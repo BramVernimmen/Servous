@@ -90,7 +90,7 @@ public class PathGraph : MonoBehaviour
 
     public Vector3 GetRandomDestinationForDifficulty(int difficulty)
     {
-        int rand = Random.Range(0, m_Destinations.Count);
+        int rand = Random.Range(0, m_Destinations[difficulty].Count);
         return m_Destinations[difficulty][rand].transform.position;
     }
 
@@ -102,7 +102,7 @@ public class PathGraph : MonoBehaviour
         foreach(PathNode node in m_PathGraph)
         {        
             float distanceSq = (node.transform.position - currentPos).sqrMagnitude;
-            if (distanceSq < closestNodeDistSq && distanceSq > acceptanceRadiusSq)
+            if (distanceSq < closestNodeDistSq)
             {
                 currentNode = node;
                 closestNodeDistSq = distanceSq;

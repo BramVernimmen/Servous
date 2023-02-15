@@ -6,8 +6,8 @@ public class PathNode : MonoBehaviour
 {
     //Fields
     [SerializeField]
-    private List<GameObject> m_NodeObjects;
-    private List<PathNode> m_Nodes;
+    protected List<GameObject> m_NodeObjects;
+    protected List<PathNode> m_Nodes;
     // Start is called before the first frame update
 
     public List<PathNode> Nodes
@@ -15,7 +15,7 @@ public class PathNode : MonoBehaviour
         get { return m_Nodes; }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         m_Nodes = new List<PathNode>();
         foreach (var nodeObj in m_NodeObjects)
@@ -27,12 +27,12 @@ public class PathNode : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         PathGraph.Instance.RegisterNode(this);
     }
 
-    private void OnDisable() 
+    protected virtual void OnDisable() 
     { 
         PathGraph.Instance.UnregisterNode(this);
     }

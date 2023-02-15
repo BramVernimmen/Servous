@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestinationNode : MonoBehaviour
+public class DestinationNode : PathNode
 {
     [SerializeField]
     private int m_Difficulty;
@@ -12,14 +12,20 @@ public class DestinationNode : MonoBehaviour
         get { return m_Difficulty; }
     }
 
-    private void OnEnable()
+    protected override void Awake()
     {
-        //Destination nodes are not added to the graph
+        base.Awake();
+    }
+
+    protected override void OnEnable()
+    {
+        PathGraph.Instance.RegisterNode(this);
         PathGraph.Instance.RegisterDestination(this);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        PathGraph.Instance.UnregisterNode(this);
         PathGraph.Instance.UnregisterDestination(this);
     }
 }

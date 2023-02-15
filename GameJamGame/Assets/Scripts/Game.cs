@@ -5,14 +5,20 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField]
-    private int m_StartingDifficulty = 1;
+    private int m_Difficulty = 1;
+    private int m_CurrentDifficulty = 0;
     private int m_Score;
 
     [SerializeField] private GameObject m_StartPrefab = null;
     [SerializeField] private GameObject m_PausePrefab = null;
     private const string PAUSEBUTTON = "Pause";
 
+    private float returnTimer = 5.0f;
+    private const string METHOD_SETDESTINATION = "SetPlayerDestination";
+
     private GameObject m_PauseMenu = null;
+
+    private MovementBehaviour m_MovementController = null;
 
     public int Score
     {
@@ -65,6 +71,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         Instantiate(m_StartPrefab);
+        m_MovementController = FindObjectOfType<MovementBehaviour>();
     }
 
     // Update is called once per frame
@@ -87,13 +94,24 @@ public class Game : MonoBehaviour
         }
     }
     
+    
     public void OnDestinationArrival()
     {
+        if (m_CurrentDifficulty > 0) m_CurrentDifficulty = 0;
+        else m_CurrentDifficulty = m_Difficulty;
 
+        Invoke(METHOD_SETDESTINATION, returnTimer);
+    }
+
+    private void SetPlayerDestination()
+    {
+        m_MovementController.SetGoal(PathGraph.Instance.GetRandomDestinationForDifficulty(m_CurrentDifficulty));
     }
 
     public void StartNewGame()
     {
         Debug.Log("new game started");
+        m_CurrentDifficulty = m_Difficulty;
+        SetPlayerDestination();
     }
 }
