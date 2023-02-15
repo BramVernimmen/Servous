@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3338578753435842612}
   - component: {fileID: 3364406923938142742}
   - component: {fileID: 8252512900679440076}
+  - component: {fileID: 7476533580755965393}
   m_Layer: 0
   m_Name: Cola
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3338578753433402556}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -115,3 +116,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7476533580755965393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338578753433402556}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.914856, y: 5.5950384, z: 1.9148519}
+  m_Center: {x: 0, y: 0, z: 0.0000022351742}

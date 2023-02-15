@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2998499866997093433}
   - component: {fileID: 2988215643392196671}
   - component: {fileID: 4788807178592052290}
+  - component: {fileID: 8836610081488209024}
   m_Layer: 0
   m_Name: Beer
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2998499866995039639}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -115,3 +116,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8836610081488209024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998499866995039639}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0045552, y: 3.3333936, z: 2.0191855}
+  m_Center: {x: -0.000011742115, y: 0, z: 0.000002682209}
