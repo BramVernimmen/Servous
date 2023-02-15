@@ -6,12 +6,13 @@ public class Game : MonoBehaviour
 {
     [SerializeField]
     private int m_StartingDifficulty = 1;
-
     private int m_Score;
 
     [SerializeField] private GameObject m_StartPrefab = null;
     [SerializeField] private GameObject m_PausePrefab = null;
     private const string PAUSEBUTTON = "Pause";
+
+    private GameObject m_PauseMenu = null;
 
     public int Score
     {
@@ -71,8 +72,18 @@ public class Game : MonoBehaviour
     {
         if (Input.GetButtonDown(PAUSEBUTTON))
         {
-            Instantiate(m_PausePrefab);
-            Debug.Log("Paused");
+            if (m_PauseMenu == null)
+            {
+                m_PauseMenu = Instantiate(m_PausePrefab);
+                Debug.Log("Paused");
+            }
+            else
+            {
+                PauseMenu pause = m_PauseMenu.GetComponent<PauseMenu>();
+                pause.OnClickContinue();
+                Destroy(m_PauseMenu);
+                m_PauseMenu = null;
+            }
         }
     }
     
