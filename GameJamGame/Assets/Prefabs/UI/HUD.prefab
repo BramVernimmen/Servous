@@ -551,7 +551,7 @@ MonoBehaviour:
   m_CounterScore: {fileID: 1028428206672409023}
   m_CounterTime: {fileID: 1593190496607207352}
   m_MaxTimeSeconds: 60
-  m_MenuPrefab: {fileID: 0}
+  m_MenuPrefab: {fileID: 2005200229710498597, guid: c6635de439129d04cbb661c2e1d0255e, type: 3}
 --- !u!1 &7204275498871044408
 GameObject:
   m_ObjectHideFlags: 0
