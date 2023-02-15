@@ -29,22 +29,30 @@ public class MovementBehaviour : MonoBehaviour
         m_Agent.isStopped = false; //Agent start not being able to move
 
         m_Agent.speed = speed; //Setting the movement speed
+
+        Debug.LogWarning("Make the start destination a field");
+        m_Agent.destination = new Vector3(0, 0, 0); 
     }
 
     private void Update()
     {
+        if (Input.GetButtonDown("Move")) //Enable or dissable the movement of the agent
+        {
+            m_Agent.isStopped = !m_Agent.isStopped;
+        }
         tempPositionSetting(); //temp way of setting a destination
         if (HasArrivedAtNode(transform.position, m_Agent.destination, 5.0f))
         {
-            Vector3 nextNodePos = PathGraph.Instance.GetNextPathPoint(m_Agent.transform.position, 5.0f, m_GoalPosition);
-            if (Input.GetButtonDown("Move")) //Enable or dissable the movement of the agent
+            Vector3 nextNodePos = m_Agent.destination;
+            if (HasArrivedAtNode(transform.position, m_GoalPosition, 5.0f))
             {
-                m_Agent.isStopped = !m_Agent.isStopped;
+                Game.Instance.OnDestinationArrival();
             }
-
-            //print(nextNodePos);
-            //print(m_GoalPosition);
-
+            else
+            {
+                nextNodePos = PathGraph.Instance.GetNextPathPoint(m_Agent.transform.position, 5.0f, m_GoalPosition);
+            }           
+            
             m_Agent.SetDestination(nextNodePos); //Setting the destination   
         }
     }
