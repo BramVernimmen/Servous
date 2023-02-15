@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauzeMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     private void Start()
     {
@@ -11,8 +11,6 @@ public class PauzeMenu : MonoBehaviour
 
     public void OnClickContinue()
     {
-        // TODO: spawn pauze menu
-
         Time.timeScale = 1;
         Destroy(gameObject);
     }

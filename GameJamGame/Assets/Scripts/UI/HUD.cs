@@ -48,7 +48,8 @@ public class HUD : MonoBehaviour
                 m_Menu = null;
                 m_InMenu = false;
 
-                // TODO: Reset Game
+                // reset Game
+                Game.Instance.StartNewGame();
             }
         }
         else

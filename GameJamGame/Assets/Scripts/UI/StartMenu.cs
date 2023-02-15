@@ -12,8 +12,7 @@ public class StartMenu : MonoBehaviour
     public void OnClickStart()
     {
         Time.timeScale = 1;
-        // TODO: game loop spawns start menu
-        // TODO: start game
+        Game.Instance.StartNewGame();
         Destroy(this.gameObject);
     }
 

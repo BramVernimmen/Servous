@@ -8,18 +8,14 @@ public class Game : MonoBehaviour
     private int m_StartingDifficulty = 1;
 
     private int m_Score;
-    private bool m_IsPaused = false;
 
+    [SerializeField] private GameObject m_StartPrefab = null;
+    [SerializeField] private GameObject m_PausePrefab = null;
     private const string PAUSEBUTTON = "Pause";
 
     public int Score
     {
         get { return m_Score; }
-    }
-
-    public bool IsPaused
-    {
-        get { return m_IsPaused; }
     }
 
     #region SINGLETON
@@ -67,7 +63,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-       
+        Instantiate(m_StartPrefab);
     }
 
     // Update is called once per frame
@@ -75,7 +71,7 @@ public class Game : MonoBehaviour
     {
         if (Input.GetButtonDown(PAUSEBUTTON))
         {
-            m_IsPaused = !m_IsPaused;
+            Instantiate(m_PausePrefab);
             Debug.Log("Paused");
         }
     }
@@ -83,5 +79,10 @@ public class Game : MonoBehaviour
     public void OnDestinationArrival()
     {
 
+    }
+
+    public void StartNewGame()
+    {
+        Debug.Log("new game started");
     }
 }
