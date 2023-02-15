@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
 
     private float returnTimer = 5.0f;
     private const string METHOD_SETDESTINATION = "SetPlayerDestination";
+    private const string METHOD_REMOVEBOTTLES = "RemoveBottles";
 
     private GameObject m_PauseMenu = null;
 
@@ -63,6 +64,8 @@ public class Game : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Random.InitState((int)System.DateTime.Now.Ticks);
     }
 
     #endregion
@@ -93,19 +96,31 @@ public class Game : MonoBehaviour
             }
         }
     }
-    
-    
+
+
     public void OnDestinationArrival()
     {
-        if (m_CurrentDifficulty > 0) m_CurrentDifficulty = 0;
-        else m_CurrentDifficulty = m_Difficulty;
+        if (m_CurrentDifficulty > 0)
+        {
+            m_CurrentDifficulty = 0;
+            Invoke(METHOD_REMOVEBOTTLES, 1f);
+        }
+        else
+        {
+            m_CurrentDifficulty = m_Difficulty;
+            BottleSpawner.Instance.SpawnBottles(m_Difficulty);
+        }
 
         Invoke(METHOD_SETDESTINATION, returnTimer);
     }
-
     private void SetPlayerDestination()
     {
         m_MovementController.SetGoal(PathGraph.Instance.GetRandomDestinationForDifficulty(m_CurrentDifficulty));
+    }
+
+    private void RemoveBottles()
+    {
+        m_Score += BottleSpawner.Instance.CountAndRemoveBottles();
     }
 
     public void StartNewGame()
@@ -113,5 +128,6 @@ public class Game : MonoBehaviour
         Debug.Log("new game started");
         m_CurrentDifficulty = m_Difficulty;
         SetPlayerDestination();
+        BottleSpawner.Instance.SpawnBottles(m_Difficulty);
     }
 }
