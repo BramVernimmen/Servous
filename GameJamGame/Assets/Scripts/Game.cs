@@ -17,6 +17,11 @@ public class Game : MonoBehaviour
         get { return m_Score; }
     }
 
+    public bool IsPaused
+    {
+        get { return m_IsPaused; }
+    }
+
     #region SINGLETON
     private static Game m_Instance;
     private static string m_SingletonInstance = "Singleton_Game";
