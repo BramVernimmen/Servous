@@ -127,6 +127,7 @@ public class Game : MonoBehaviour
     {
         Debug.Log("new game started");
         m_CurrentDifficulty = m_Difficulty;
+        m_Score = 0;
         SetPlayerDestination();
         BottleSpawner.Instance.SpawnBottles(m_Difficulty);
     }
