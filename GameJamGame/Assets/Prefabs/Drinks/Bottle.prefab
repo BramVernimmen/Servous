@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8782327853601361890}
   - component: {fileID: 8720378680317501248}
   - component: {fileID: 1926779177446064183}
+  - component: {fileID: 1275184723478390312}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8782327853599136774}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -115,3 +116,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1275184723478390312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782327853599136774}
+  m_Material: {fileID: 13400000, guid: 975c09dfda8608343b0ee30d5e835b64, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7998352, y: 5.81843, z: 1.7998426}
+  m_Center: {x: 0.000015258789, y: 0, z: 0.0000022947788}
