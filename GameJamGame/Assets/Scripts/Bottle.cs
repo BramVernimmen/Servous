@@ -10,6 +10,9 @@ public class Bottle : MonoBehaviour
     const string m_Tag = "Bottles";
     bool destroyed = false;
 
+    private void Awake()
+    {
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(!other.gameObject.CompareTag(m_Tag))
@@ -43,5 +46,7 @@ public class Bottle : MonoBehaviour
     {
         GameObject brokenBottle = Instantiate(m_DestroyedVersion, transform.position, transform.rotation);
         brokenBottle.transform.localScale = new Vector3(5, 5, 5);
+        
+
     }
 }
