@@ -12550,6 +12550,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 421212, guid: a0f542ba0461f8c4cbb89acbe6331cf5, type: 3}
   m_PrefabInstance: {fileID: 412597546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &413524596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413524600}
+  - component: {fileID: 413524599}
+  - component: {fileID: 413524598}
+  - component: {fileID: 413524597}
+  m_Layer: 0
+  m_Name: KillPlaneDrinks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &413524597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413524596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30516595e39dc204ab9aa660c24d3922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &413524598
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413524596}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &413524599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413524596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &413524600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413524596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.86, y: -0.115, z: -1.95}
+  m_LocalScale: {x: 30, y: 1, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &414699748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50227,6 +50302,17 @@ MonoBehaviour:
   m_Agent: {fileID: 1601024494}
   cam: {fileID: 1601024493}
   speed: 3.5
+--- !u!114 &1601024499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4430448976397904913, guid: 5bb3b6fc3ea2ef54bb5441b25f46d9ce, type: 3}
+  m_PrefabInstance: {fileID: 1601024491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601024492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d639edf525340664f884d5f9ac0070c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1601026760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55578,14 +55664,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1601024492}
+    - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_Difficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_HandMovement
+      value: 
+      objectReference: {fileID: 1601024499}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_Plate
+      value: 
+      objectReference: {fileID: 356648502}
     - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_plate
       value: 
       objectReference: {fileID: 356648502}
     - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1601024492}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_player
       value: 
       objectReference: {fileID: 1601024492}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: nr_Spawns
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_RadiusPlate
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_MinBottleDistance
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
 --- !u!1001 &1777361402

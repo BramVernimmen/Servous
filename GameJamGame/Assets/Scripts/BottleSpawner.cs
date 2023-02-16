@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -17,8 +18,11 @@ public class BottleSpawner : MonoBehaviour
     [SerializeField] GameObject m_Player = null;
 
     [SerializeField] float m_RadiusPlate = 0.17f;
+    [SerializeField] float m_MinBottleDistance = 0.5f;
 
     private List<GameObject> m_Bottles;
+
+    //[SerializeField] int nr_Spawns = 0;
 
     #region SINGLETON
     private static BottleSpawner m_Instance;
@@ -69,8 +73,11 @@ public class BottleSpawner : MonoBehaviour
         if(m_Plate == null) return;
         if(m_Player == null) return;
      
+        List<Vector2> bottlePositions = new List<Vector2>();
+
         // spawn bottle
         for(int i = 0; i < nrBottles; i++)
+        //for(int i = 0; i < nr_Spawns; i++)
         {
             int type = Random.Range(0, nrTypes);
             GameObject spawnType = m_Type0;
@@ -95,16 +102,46 @@ public class BottleSpawner : MonoBehaviour
                     spawnType = m_Type0;
                     break;        
             }
-
+       
             Vector3 position = m_Plate.transform.position;
             position.y -= 0.2f;
-            float randomRadius = Random.Range(0, m_RadiusPlate);
-            position.x += Mathf.Sin(Random.Range(0, 3.14f)) * randomRadius;
-            position.z += Mathf.Cos(Random.Range(0, 3.14f)) * randomRadius;
+
+            bool goodPosition = false;
+            int maxAttempts = 10;
+
+            while(!goodPosition)
+            {
+                --maxAttempts;
+
+                float randomRadius = Random.Range(0, m_RadiusPlate);
+                //float randomRadius = m_RadiusPlate;
+                position.x += Mathf.Sin(Random.Range(0, 3.14f)) * randomRadius;
+                position.z += Mathf.Cos(Random.Range(0, 3.14f)) * randomRadius;
+                Vector2 newPos = new Vector2(position.x, position.z);
+
+                goodPosition = true;
+                for(int j = 0; j < bottlePositions.Count; j++)
+                {
+                    if (Vector2.Distance(bottlePositions[j], newPos) < m_MinBottleDistance)
+                    {
+                        goodPosition = false;
+                    }
+                }
+
+                // safety exit to avoid endless loop
+                if (maxAttempts == 0)
+                {
+                    goodPosition = true;
+                }
+            }
+
+            bottlePositions.Add(new Vector2(position.x, position.z));
 
             Quaternion rotation = Quaternion.Euler(0, 0, 0);
             GameObject newBottle = Instantiate(spawnType, position, rotation);
             newBottle.transform.SetParent(m_Player.transform, true);
+
+            //newBottle.transform.localPosition += new Vector3(0.5f, 0, 0);
 
             m_Bottles.Add(newBottle);
         }

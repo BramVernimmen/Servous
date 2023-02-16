@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -23,6 +24,7 @@ public class Game : MonoBehaviour
     private float returnTimer = 1.5f;
     private const string METHOD_SETDESTINATION = "SetPlayerDestination";
     private const string METHOD_REMOVEBOTTLES = "RemoveBottles";
+    private bool m_DroppedBottles = false;
 
     private GameObject m_PauseMenu = null;
 
@@ -109,10 +111,29 @@ public class Game : MonoBehaviour
 
     public void OnDestinationArrival()
     {
-        if (m_CurrentDifficulty > 0)
+        if(m_DroppedBottles)
         {
             m_CurrentDifficulty = 0;
-            Invoke(METHOD_REMOVEBOTTLES, 1f);
+            m_DroppedBottles = false;
+        }
+        else if (m_CurrentDifficulty > 0)
+        {
+            if (m_RandomDifficulty == false)
+            {
+                ++m_Difficulty;
+                if (m_Difficulty == 5)
+                {
+                    m_RandomDifficulty = true;
+                }
+            }
+
+            if (m_RandomDifficulty == true)
+            {
+                m_Difficulty = Random.Range(1, 5);
+            }
+
+            m_CurrentDifficulty = 0;
+            Invoke(METHOD_REMOVEBOTTLES, 1.0f);
         }
         else
         {
@@ -134,26 +155,15 @@ public class Game : MonoBehaviour
 
     public void DroppedAllBottles()
     {
-        m_MovementController.SetGoal(m_Player.transform.position);
+
+        m_MovementController.ReturnToStart();
+        
+        m_DroppedBottles = true;
     }
 
     public void StartNewGame()
     {
         Debug.Log("new game started");
-
-        if(m_RandomDifficulty == false)
-        {
-            ++m_Difficulty;
-            if(m_Difficulty == 5)
-            {
-                m_RandomDifficulty = true;
-            }
-        }
-
-        if(m_RandomDifficulty == true)
-        {
-            m_Difficulty = Random.Range(1, 5);
-        }
 
         m_CurrentDifficulty = m_Difficulty;
         m_Score = 0;
