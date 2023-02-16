@@ -57575,6 +57575,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_DestTemplate
+      value: 
+      objectReference: {fileID: 6686621189412042396, guid: db80e169418578146aead41435e4adc8, type: 3}
+    - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_HandMovement
       value: 
       objectReference: {fileID: 1601024496}
