@@ -7,13 +7,18 @@ public class Game : MonoBehaviour
     [SerializeField]
     private int m_Difficulty = 1;
     private int m_CurrentDifficulty = 0;
+
     private int m_Score;
+
+    [SerializeField] private GameObject m_Player;
+    private Vector3 m_PlayerStartPosition;
+    private Quaternion m_PlayerStartRotation;
 
     [SerializeField] private GameObject m_StartPrefab = null;
     [SerializeField] private GameObject m_PausePrefab = null;
     private const string PAUSEBUTTON = "Pause";
 
-    private float returnTimer = 5.0f;
+    private float returnTimer = 1.5f;
     private const string METHOD_SETDESTINATION = "SetPlayerDestination";
     private const string METHOD_REMOVEBOTTLES = "RemoveBottles";
 
@@ -73,6 +78,8 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        m_PlayerStartPosition = m_Player.transform.position;
+        m_PlayerStartRotation = m_Player.transform.rotation;
         Instantiate(m_StartPrefab);
         m_MovementController = FindObjectOfType<MovementBehaviour>();
     }
@@ -123,11 +130,20 @@ public class Game : MonoBehaviour
         m_Score += BottleSpawner.Instance.CountAndRemoveBottles();
     }
 
+    public void DroppedAllBottles()
+    {
+        m_MovementController.SetGoal(m_Player.transform.position);
+    }
+
     public void StartNewGame()
     {
         Debug.Log("new game started");
         m_CurrentDifficulty = m_Difficulty;
         m_Score = 0;
+
+        m_Player.transform.position = m_PlayerStartPosition;
+        m_Player.transform.rotation = m_PlayerStartRotation;
+
         SetPlayerDestination();
         BottleSpawner.Instance.SpawnBottles(m_Difficulty);
     }

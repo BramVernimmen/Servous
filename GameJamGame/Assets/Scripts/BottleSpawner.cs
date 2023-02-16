@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BottleSpawner : MonoBehaviour
 {
@@ -134,6 +135,20 @@ public class BottleSpawner : MonoBehaviour
             {
                 m_Bottles[i] = null;
             }
+        }
+
+        int count = 0;
+        for (int i = 0; i < m_Bottles.Count; ++i)
+        {
+            if (m_Bottles[i] != null)
+            {
+                ++count;
+            }
+        }
+
+        if(count == 0)
+        {
+            Game.Instance.DroppedAllBottles();
         }
     }
 }

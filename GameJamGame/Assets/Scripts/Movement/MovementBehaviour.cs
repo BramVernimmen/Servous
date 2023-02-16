@@ -13,7 +13,7 @@ public class MovementBehaviour : MonoBehaviour
     public void SetGoal(Vector3 goalPosition)
     {
         m_GoalPosition = goalPosition;
-        print(m_GoalPosition);
+        //print(m_GoalPosition);
         m_ArrivedAtDestination = false;
         SetDestination();
     }

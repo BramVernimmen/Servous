@@ -13,7 +13,7 @@ public class WobblePlate : MonoBehaviour
     void Start()
     {
         m_MousePos = Input.mousePosition;
-        Debug.Log(Input.mousePosition);
+        //Debug.Log(Input.mousePosition);
     }
 
     // Update is called once per frame

@@ -55635,6 +55635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1601024492}
     - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_Plate
       value: 
