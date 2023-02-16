@@ -117,6 +117,20 @@ public class Game : MonoBehaviour
         }
         else if (m_CurrentDifficulty > 0)
         {
+            if (m_RandomDifficulty == false)
+            {
+                ++m_Difficulty;
+                if (m_Difficulty == 5)
+                {
+                    m_RandomDifficulty = true;
+                }
+            }
+
+            if (m_RandomDifficulty == true)
+            {
+                m_Difficulty = Random.Range(1, 5);
+            }
+
             m_CurrentDifficulty = 0;
             Invoke(METHOD_REMOVEBOTTLES, 1.0f);
         }
@@ -147,20 +161,6 @@ public class Game : MonoBehaviour
     public void StartNewGame()
     {
         Debug.Log("new game started");
-
-        if(m_RandomDifficulty == false)
-        {
-            ++m_Difficulty;
-            if(m_Difficulty == 5)
-            {
-                m_RandomDifficulty = true;
-            }
-        }
-
-        if(m_RandomDifficulty == true)
-        {
-            m_Difficulty = Random.Range(1, 5);
-        }
 
         m_CurrentDifficulty = m_Difficulty;
         m_Score = 0;
