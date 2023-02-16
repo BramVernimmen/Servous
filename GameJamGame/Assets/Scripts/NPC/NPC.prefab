@@ -45,11 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8274f932647d8b542886f91c093f112d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Agent: {fileID: 0}
   m_Animator: {fileID: 3461167657651877603}
-  m_IsSitting: 0
-  m_Speed: 0
-  m_SitState: 0
+  m_IsSitting: 1
 --- !u!1001 &3461167657661432799
 PrefabInstance:
   m_ObjectHideFlags: 0

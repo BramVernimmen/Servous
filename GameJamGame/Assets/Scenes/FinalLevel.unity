@@ -2092,6 +2092,7 @@ MonoBehaviour:
   - {fileID: 907293007}
   - {fileID: 2042596703}
   - {fileID: 833216329}
+  m_AddToGraph: 1
 --- !u!1001 &87679312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2650,6 +2651,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 973112569}
   - {fileID: 978132472}
+  m_AddToGraph: 1
 --- !u!1001 &97687681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,6 +3465,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 481591046}
   - {fileID: 426040506}
+  m_AddToGraph: 1
   m_Difficulty: 1
 --- !u!4 &114634922
 Transform:
@@ -8761,6 +8764,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 942699089}
   - {fileID: 870482046}
+  m_AddToGraph: 1
 --- !u!4 &285555817
 Transform:
   m_ObjectHideFlags: 0
@@ -9199,6 +9203,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 1859684937}
   - {fileID: 935802576}
+  m_AddToGraph: 1
 --- !u!1001 &301527112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9556,6 +9561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 1895897345}
+  m_AddToGraph: 1
   m_Difficulty: 4
 --- !u!4 &316013373
 Transform:
@@ -12176,6 +12182,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 676918967}
   - {fileID: 1673870211}
+  m_AddToGraph: 1
 --- !u!4 &381788124
 Transform:
   m_ObjectHideFlags: 0
@@ -12222,6 +12229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 690662383}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!4 &385851580
 Transform:
@@ -12836,6 +12844,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 285555815}
   - {fileID: 870482046}
+  m_AddToGraph: 1
   m_Difficulty: 2
 --- !u!4 &408410279
 Transform:
@@ -13764,6 +13773,7 @@ MonoBehaviour:
   - {fileID: 481591046}
   - {fileID: 907293007}
   - {fileID: 759488342}
+  m_AddToGraph: 1
 --- !u!1001 &427858171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15072,6 +15082,7 @@ MonoBehaviour:
   - {fileID: 2035147661}
   - {fileID: 1347985641}
   - {fileID: 481591046}
+  m_AddToGraph: 1
 --- !u!1 &475716871
 GameObject:
   m_ObjectHideFlags: 0
@@ -15402,6 +15413,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 426040506}
   - {fileID: 475012169}
+  m_AddToGraph: 1
 --- !u!1001 &482461557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17878,6 +17890,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 301227177}
   - {fileID: 1859684937}
+  m_AddToGraph: 1
   m_Difficulty: 2
 --- !u!4 &571410780
 Transform:
@@ -21659,6 +21672,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 870482046}
   - {fileID: 381788122}
+  m_AddToGraph: 1
 --- !u!4 &676918969
 Transform:
   m_ObjectHideFlags: 0
@@ -21767,6 +21781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 1895897345}
+  m_AddToGraph: 1
   m_Difficulty: 4
 --- !u!4 &681980639
 Transform:
@@ -21954,6 +21969,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 301227177}
   - {fileID: 1038439079}
+  m_AddToGraph: 1
 --- !u!1001 &692543158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24201,6 +24217,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 978132472}
   - {fileID: 426040506}
+  m_AddToGraph: 1
 --- !u!1001 &765955212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25922,6 +25939,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 1673870211}
   - {fileID: 973112569}
+  m_AddToGraph: 1
 --- !u!1001 &827665148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26349,6 +26367,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 1895897345}
   - {fileID: 87438420}
+  m_AddToGraph: 1
 --- !u!1001 &837231844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27218,6 +27237,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 285555815}
   - {fileID: 676918967}
+  m_AddToGraph: 1
 --- !u!4 &870482048
 Transform:
   m_ObjectHideFlags: 0
@@ -28627,6 +28647,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 426040506}
   - {fileID: 87438420}
+  m_AddToGraph: 1
 --- !u!1001 &909184969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29917,6 +29938,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 301227177}
   - {fileID: 1567300082}
+  m_AddToGraph: 1
 --- !u!4 &935802578
 Transform:
   m_ObjectHideFlags: 0
@@ -30165,6 +30187,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 285555815}
   - {fileID: 1347985641}
+  m_AddToGraph: 1
 --- !u!1001 &943539813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31388,6 +31411,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 825574016}
   - {fileID: 96344568}
+  m_AddToGraph: 1
 --- !u!1 &978132472
 GameObject:
   m_ObjectHideFlags: 0
@@ -31435,6 +31459,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 96344568}
   - {fileID: 759488342}
+  m_AddToGraph: 1
 --- !u!1001 &979648528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31543,6 +31568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 2035147661}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!1001 &981918669
 PrefabInstance:
@@ -31708,6 +31734,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 2042596703}
   - {fileID: 87438420}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!4 &985924705
 Transform:
@@ -33467,6 +33494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 2035147661}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!4 &1018106244
 Transform:
@@ -34348,6 +34376,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 690662383}
   - {fileID: 1895897345}
+  m_AddToGraph: 1
 --- !u!1001 &1038677302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35021,6 +35050,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 833216329}
   - {fileID: 87438420}
+  m_AddToGraph: 1
   m_Difficulty: 1
 --- !u!1001 &1059940331
 PrefabInstance:
@@ -37951,6 +37981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 1895897345}
+  m_AddToGraph: 1
   m_Difficulty: 0
 --- !u!1001 &1155092858
 PrefabInstance:
@@ -42852,6 +42883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 96344568}
+  m_AddToGraph: 1
   m_Difficulty: 4
 --- !u!1001 &1296024013
 PrefabInstance:
@@ -44738,6 +44770,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 475012169}
   - {fileID: 942699089}
+  m_AddToGraph: 1
 --- !u!4 &1347985643
 Transform:
   m_ObjectHideFlags: 0
@@ -46969,6 +47002,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 2042596703}
   - {fileID: 1859684937}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!4 &1423039850
 Transform:
@@ -47178,6 +47212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 1347985641}
+  m_AddToGraph: 1
   m_Difficulty: 2
 --- !u!4 &1428673545
 Transform:
@@ -48390,6 +48425,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 285555815}
   - {fileID: 942699089}
+  m_AddToGraph: 1
   m_Difficulty: 1
 --- !u!1001 &1475354104
 PrefabInstance:
@@ -48995,6 +49031,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 481591046}
   - {fileID: 426040506}
+  m_AddToGraph: 1
   m_Difficulty: 2
 --- !u!1001 &1495382084
 PrefabInstance:
@@ -50353,7 +50390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127d0e936515d964b9ffeee900b1d6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GoalPosition: {x: 0, y: 0, z: 0}
   m_Agent: {fileID: 1545614260}
   cam: {fileID: 1874593741}
   speed: 5
@@ -50770,6 +50806,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 935802576}
   - {fileID: 690662383}
+  m_AddToGraph: 1
 --- !u!4 &1567300084
 Transform:
   m_ObjectHideFlags: 0
@@ -50887,6 +50924,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 973112569}
   - {fileID: 825574016}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!4 &1568784374
 Transform:
@@ -52066,7 +52104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127d0e936515d964b9ffeee900b1d6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GoalPosition: {x: 0, y: 0, z: 0}
   m_Agent: {fileID: 1601024494}
   cam: {fileID: 1601024493}
   speed: 3.5
@@ -52237,6 +52274,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 1895897345}
   - {fileID: 87438420}
+  m_AddToGraph: 1
   m_Difficulty: 1
 --- !u!4 &1603773424
 Transform:
@@ -53918,6 +53956,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 381788122}
   - {fileID: 825574016}
+  m_AddToGraph: 1
 --- !u!1001 &1675229178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57555,6 +57594,10 @@ PrefabInstance:
       propertyPath: m_player
       value: 
       objectReference: {fileID: 1601024492}
+    - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
+      propertyPath: m_MinBottleDistance
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
 --- !u!1001 &1777361402
@@ -60916,6 +60959,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 2042596703}
   - {fileID: 301227177}
+  m_AddToGraph: 1
 --- !u!1001 &1863843816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61574,6 +61618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NodeObjects:
   - {fileID: 907293007}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!1001 &1883657008
 PrefabInstance:
@@ -61800,6 +61845,7 @@ MonoBehaviour:
   - {fileID: 1155060593}
   - {fileID: 833216329}
   - {fileID: 1038439079}
+  m_AddToGraph: 1
 --- !u!4 &1895897347
 Transform:
   m_ObjectHideFlags: 0
@@ -62487,6 +62533,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 676918967}
   - {fileID: 381788122}
+  m_AddToGraph: 1
   m_Difficulty: 3
 --- !u!1001 &1915064733
 PrefabInstance:
@@ -66216,6 +66263,7 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 1895897345}
   - {fileID: 475012169}
+  m_AddToGraph: 1
 --- !u!1001 &2037253793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66451,6 +66499,7 @@ MonoBehaviour:
   - {fileID: 1859684937}
   - {fileID: 1423039848}
   - {fileID: 985924703}
+  m_AddToGraph: 1
 --- !u!1001 &2043931734
 PrefabInstance:
   m_ObjectHideFlags: 0

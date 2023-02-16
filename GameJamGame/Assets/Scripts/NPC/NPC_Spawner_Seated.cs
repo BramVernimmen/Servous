@@ -17,11 +17,7 @@ public class NPC_Spawner_Seated : MonoBehaviour
         m_Spawnednpc = Instantiate(m_NPCPrefab, transform.position + m_NPCOffset, transform.rotation);
 
         //Setting animation settings
-        int animation = UnityEngine.Random.Range(0, 2);
-        m_Spawnednpc.GetComponent<NPCBehaviour>().m_SitState = animation;
         m_Spawnednpc.GetComponent<NPCBehaviour>().m_IsSitting = true;
-
-
     }
 
 }
