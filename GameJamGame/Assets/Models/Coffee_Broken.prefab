@@ -124,6 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809469459986466010}
+  - component: {fileID: 48891674213859269}
   m_Layer: 0
   m_Name: Coffee_Broken
   m_TagString: Untagged
@@ -173,6 +174,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48891674213859269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31525764221705824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2ec26852038944b011762f62f69ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LifeTime: 10
 --- !u!1 &124004977960720419
 GameObject:
   m_ObjectHideFlags: 0

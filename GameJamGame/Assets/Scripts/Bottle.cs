@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bottle : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject m_DestroyedVersion;
+
     const string m_Tag = "Bottles";
     bool destroyed = false;
 
@@ -13,7 +16,9 @@ public class Bottle : MonoBehaviour
         {
             if(!destroyed)
             {
-                Debug.Log("Destroy bottle");
+                BreakObject();
+
+                //Debug.Log("Destroy bottle");
                 BottleSpawner.Instance.DestroyedBottle(gameObject);
                 destroyed = true;
                 Destroy(gameObject);
@@ -25,10 +30,18 @@ public class Bottle : MonoBehaviour
     {
         if (!destroyed)
         {
-            Debug.Log("Destroy bottle on ground");
+            BreakObject();
+
+            //Debug.Log("Destroy bottle on ground");
             BottleSpawner.Instance.DestroyedBottle(gameObject);
             destroyed = true;
             Destroy(gameObject);
         }
+    }
+
+    public void BreakObject()
+    {
+        GameObject brokenBottle = Instantiate(m_DestroyedVersion, transform.position, transform.rotation);
+        brokenBottle.transform.localScale = new Vector3(5, 5, 5);
     }
 }
