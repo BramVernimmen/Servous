@@ -114,6 +114,7 @@ public class BottleSpawner : MonoBehaviour
                 --maxAttempts;
 
                 float randomRadius = Random.Range(0, m_RadiusPlate);
+                //float randomRadius = m_RadiusPlate;
                 position.x += Mathf.Sin(Random.Range(0, 3.14f)) * randomRadius;
                 position.z += Mathf.Cos(Random.Range(0, 3.14f)) * randomRadius;
                 Vector2 newPos = new Vector2(position.x, position.z);
@@ -139,6 +140,8 @@ public class BottleSpawner : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 0, 0);
             GameObject newBottle = Instantiate(spawnType, position, rotation);
             newBottle.transform.SetParent(m_Player.transform, true);
+
+            //newBottle.transform.localPosition += new Vector3(0.5f, 0, 0);
 
             m_Bottles.Add(newBottle);
         }
