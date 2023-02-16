@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ public class Game : MonoBehaviour
     [SerializeField] private int m_Difficulty = 0;
     private int m_CurrentDifficulty = 0;
     private bool m_RandomDifficulty = false;
+
+    [SerializeField]
+    private GameObject m_DestTemplate;
+    private GameObject m_DestinationIndicator;
 
     private int m_Score;
     private int m_SecondsPerPoint = 5;
@@ -159,7 +164,13 @@ public class Game : MonoBehaviour
     }
     private void SetPlayerDestination()
     {
-        m_MovementController.SetGoal(PathGraph.Instance.GetRandomDestinationForDifficulty(m_CurrentDifficulty));
+        if (m_DestinationIndicator != null)
+        {
+            Destroy(m_DestinationIndicator);
+        }
+        DestinationNode destination = PathGraph.Instance.GetRandomDestinationForDifficulty(m_CurrentDifficulty);
+        m_MovementController.SetGoal(destination);
+        m_DestinationIndicator = Instantiate(m_DestTemplate, destination.transform.position + new Vector3(0, 5, 0), destination.transform.rotation);
     }
 
     private void RemoveBottles()
