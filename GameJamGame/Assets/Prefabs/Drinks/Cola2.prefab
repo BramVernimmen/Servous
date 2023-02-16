@@ -48,12 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DestroyedVersion: {fileID: 6142133289553145892, guid: 3074d7977834fa8468a93b23d7914cc2, type: 3}
-  audioClip1: {fileID: 8300000, guid: 2788ba9a879e8204eaf2d63a0b439d83, type: 3}
-  audioClip2: {fileID: 8300000, guid: 0aa9e8180061dc949807d4cc56acc3e9, type: 3}
-  audioClip3: {fileID: 8300000, guid: b32bf8554acefa743a5042ceed3f79c8, type: 3}
-  audioClip4: {fileID: 8300000, guid: 35360b836cba1c2499bea535789a7934, type: 3}
-  audioClip5: {fileID: 8300000, guid: 960f93a2aea8c4f4196387a0481d975e, type: 3}
-  audioClip6: {fileID: 8300000, guid: 2059345d0a3ea114e88dfb530f0290e8, type: 3}
 --- !u!65 &9185525103397555182
 BoxCollider:
   m_ObjectHideFlags: 0

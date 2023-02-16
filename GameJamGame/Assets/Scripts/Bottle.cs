@@ -6,12 +6,6 @@ public class Bottle : MonoBehaviour
 {
     [SerializeField]
     public GameObject m_DestroyedVersion;
-    public AudioSource audioClip1;
-    public AudioSource audioClip2;
-    public AudioSource audioClip3;
-    public AudioSource audioClip4;
-    public AudioSource audioClip5;
-    public AudioSource audioClip6;
 
     const string m_Tag = "Bottles";
     bool destroyed = false;
@@ -52,27 +46,7 @@ public class Bottle : MonoBehaviour
     {
         GameObject brokenBottle = Instantiate(m_DestroyedVersion, transform.position, transform.rotation);
         brokenBottle.transform.localScale = new Vector3(5, 5, 5);
-        switch (Random.Range(0, 5))
-        {
-            case 0:
-                audioClip1.Play();
-                break;
-            case 1:
-                audioClip2.Play();
-                break;
-            case 2:
-                audioClip3.Play();
-                break;
-            case 3:
-                audioClip4.Play();
-                break;
-            case 4:
-                audioClip5.Play();
-                break;
-            case 5:
-                audioClip6.Play();
-                break;
-        }
+        
 
     }
 }
