@@ -20,6 +20,11 @@ public class EndMenu : MonoBehaviour
     bool m_Retry = false;
     public bool Retry { get { return m_Retry;} }
 
+    private void Start()
+    {
+        Game.Instance.StopGameSounds();
+    }
+
     public void OnClickRetry()
     {
         m_Retry = true;

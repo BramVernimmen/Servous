@@ -30,6 +30,12 @@ public class Game : MonoBehaviour
 
     private MovementBehaviour m_MovementController = null;
 
+    // audio
+    [SerializeField] AudioSource m_AudioSourceMusic1 = null;
+    [SerializeField] AudioSource m_AudioSourceMusic2 = null;
+    [SerializeField] AudioSource m_AudioSourceChatter = null;
+    private bool m_MusicStarted = false;
+
     public int Score
     {
         get { return m_Score; }
@@ -91,6 +97,15 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!m_MusicStarted)
+        {
+            if(!m_AudioSourceMusic1.isPlaying)
+            {
+                m_AudioSourceMusic2.Play();
+                m_MusicStarted = true;
+            }
+        }
+
         if (Input.GetButtonDown(PAUSEBUTTON))
         {
             if (m_PauseMenu == null)
@@ -107,7 +122,6 @@ public class Game : MonoBehaviour
             }
         }
     }
-
 
     public void OnDestinationArrival()
     {
@@ -176,5 +190,12 @@ public class Game : MonoBehaviour
 
         SetPlayerDestination();
         BottleSpawner.Instance.SpawnBottles(m_Difficulty);
+
+        m_AudioSourceChatter.Play();
+    }
+
+    public void StopGameSounds()
+    {
+        m_AudioSourceChatter.Stop();
     }
 }
