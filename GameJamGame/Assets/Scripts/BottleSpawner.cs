@@ -114,9 +114,14 @@ public class BottleSpawner : MonoBehaviour
                 --maxAttempts;
 
                 float randomRadius = Random.Range(0, m_RadiusPlate);
-                //float randomRadius = m_RadiusPlate;
                 position.x += Mathf.Sin(Random.Range(0, 3.14f)) * randomRadius;
                 position.z += Mathf.Cos(Random.Range(0, 3.14f)) * randomRadius;
+
+                // test
+                //float randomRadius = m_RadiusPlate;
+                //position.x += Mathf.Sin(90) * randomRadius;
+                //position.z += Mathf.Cos(90) * randomRadius;
+
                 Vector2 newPos = new Vector2(position.x, position.z);
 
                 goodPosition = true;
@@ -132,6 +137,7 @@ public class BottleSpawner : MonoBehaviour
                 if (maxAttempts == 0)
                 {
                     goodPosition = true;
+                    Debug.Log("no good pos");
                 }
             }
 
@@ -142,6 +148,7 @@ public class BottleSpawner : MonoBehaviour
             newBottle.transform.SetParent(m_Player.transform, true);
 
             //newBottle.transform.localPosition += new Vector3(0.5f, 0, 0);
+            //newBottle.transform.localPosition += new Vector3(0, 0, 0.5f);
 
             m_Bottles.Add(newBottle);
         }
