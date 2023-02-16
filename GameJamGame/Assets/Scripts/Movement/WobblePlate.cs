@@ -30,7 +30,7 @@ public class WobblePlate : MonoBehaviour
 
                 //Debug.Log(xRot + ", " + yRot + ", " + zRot);
                 //Debug.Log(Input.mousePosition.x + ", " + Input.mousePosition.y);
-                if ((Mathf.Abs(Input.mousePosition.x - m_MousePos.x) <= 10.0f || Mathf.Abs(Input.mousePosition.y - m_MousePos.y) <= 10.0f) || ((Mathf.Abs(xRot) < 10.0f || Mathf.Abs(xRot) > 350.0f) && (Mathf.Abs(zRot) < 10.0f || Mathf.Abs(zRot) > 350.0f)) )
+                if ((Mathf.Abs(Input.mousePosition.x - m_MousePos.x) <= 10.0f || Mathf.Abs(Input.mousePosition.y - m_MousePos.y) <= 10.0f) || ((Mathf.Abs(xRot) < 20.0f || Mathf.Abs(xRot) > 340.0f) && (Mathf.Abs(zRot) < 20.0f || Mathf.Abs(zRot) > 340.0f)) )
                 {
                     if (Input.mousePosition.x <= Screen.width / 2.0f)
                     {
