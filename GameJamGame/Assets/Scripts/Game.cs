@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField]
-    private int m_Difficulty = 0;
+    [SerializeField] private int m_Difficulty = 0;
     private int m_CurrentDifficulty = 0;
     private bool m_RandomDifficulty = false;
 
     private int m_Score;
+    private int m_SecondsPerPoint = 5;
 
     [SerializeField] private GameObject m_Player;
     private Vector3 m_PlayerStartPosition;
@@ -164,7 +164,9 @@ public class Game : MonoBehaviour
 
     private void RemoveBottles()
     {
-        m_Score += BottleSpawner.Instance.CountAndRemoveBottles();
+        int newPoints = BottleSpawner.Instance.CountAndRemoveBottles();
+        m_Score += newPoints;
+        HUD.Instance.AddTime(newPoints * m_SecondsPerPoint);
     }
 
     public void DroppedAllBottles()
