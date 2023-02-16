@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -154,7 +155,9 @@ public class Game : MonoBehaviour
 
     public void DroppedAllBottles()
     {
-        m_MovementController.SetGoal(m_Player.transform.position);
+
+        m_MovementController.ReturnToStart();
+        
         m_DroppedBottles = true;
     }
 

@@ -88,10 +88,10 @@ public class PathGraph : MonoBehaviour
         m_PathGraph.Add(node);  
     }
 
-    public Vector3 GetRandomDestinationForDifficulty(int difficulty)
+    public DestinationNode GetRandomDestinationForDifficulty(int difficulty)
     {
         int rand = Random.Range(0, m_Destinations[difficulty].Count);
-        return m_Destinations[difficulty][rand].transform.position;
+        return m_Destinations[difficulty][rand];
     }
 
     public Vector3 GetNextPathPoint(Vector3 currentPos, float acceptanceRadiusSq, Vector3 dest)
