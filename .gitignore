@@ -67,3 +67,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.vsconfig
+Servous/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+Servous/ProjectSettings/Packages/com.unity.probuilder/Settings.json
