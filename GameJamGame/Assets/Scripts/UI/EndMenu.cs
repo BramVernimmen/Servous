@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EndMenu : MonoBehaviour
 {
     // text
-    [SerializeField] private Text m_TextScore = null;
-    [SerializeField] private Text m_TextHighscore = null;
+    [SerializeField] private TextMeshProUGUI m_TextScore = null;
+    [SerializeField] private TextMeshProUGUI m_TextHighscore = null;
+    //[SerializeField] private Text m_TextScore = null;
+    //[SerializeField] private Text m_TextHighscore = null;
 
     // varialbes
     int m_Score;

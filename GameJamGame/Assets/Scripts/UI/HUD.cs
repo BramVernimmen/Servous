@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +10,10 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     // text on hud
-    [SerializeField] private Text m_CounterScore = null;
-    [SerializeField] private Text m_CounterTime = null;
+    //[SerializeField] private Text m_CounterScore = null;
+    //[SerializeField] private Text m_CounterTime = null;
+    [SerializeField] private TextMeshProUGUI m_CounterScore = null;
+    [SerializeField] private TextMeshProUGUI m_CounterTime = null;
 
     [SerializeField] private float m_MaxTimeSeconds = 0;
     [SerializeField] private GameObject m_MenuPrefab = null;
