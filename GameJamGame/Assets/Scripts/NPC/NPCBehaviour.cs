@@ -13,6 +13,13 @@ public class NPCBehaviour : MonoBehaviour
     float m_RandomWaitTime;
     bool m_IsIdle = true;
 
+
+    private void Start()
+    {
+        m_Animator.SetTrigger("moveBackToIdle");
+        m_RandomWaitTime = Random.Range(5f, 25f);
+    }
+
     void Update()
     {
         m_Animator.SetBool("Sitting", m_IsSitting);       

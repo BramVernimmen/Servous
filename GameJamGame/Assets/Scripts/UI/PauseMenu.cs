@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0;
+        Game.Instance.StopGameSounds();
     }
 
     public void OnClickContinue()

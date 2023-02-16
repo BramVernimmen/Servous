@@ -26,6 +26,42 @@ public class HUD : MonoBehaviour
     EndMenu m_Menu = null;
     bool m_InMenu = false;
 
+    #region SINGLETON
+    private static HUD m_Instance;
+    private static string m_SingletonInstance = "Singleton_Hud";
+
+    public static HUD Instance
+    {
+        get
+        {
+            if (m_Instance == null)
+            {
+                m_Instance = FindObjectOfType<HUD>();
+                if (m_Instance == null)
+                {
+                    GameObject newObject = new GameObject(m_SingletonInstance);
+                    m_Instance = newObject.AddComponent<HUD>();
+                }
+            }
+            return m_Instance;
+        }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (m_Instance == null)
+        {
+            m_Instance = this;
+        }
+        else if (m_Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +145,11 @@ public class HUD : MonoBehaviour
                 m_InMenu = true;
             }
         }
+    }
+
+    public void AddTime(float seconds)
+    {
+        m_Timer += seconds;
     }
 
     void ResetHud()

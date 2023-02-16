@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField]
-    private int m_Difficulty = 0;
+    [SerializeField] private int m_Difficulty = 0;
     private int m_CurrentDifficulty = 0;
     private bool m_RandomDifficulty = false;
 
     private int m_Score;
+    private int m_SecondsPerPoint = 5;
 
     [SerializeField] private GameObject m_Player;
     private Vector3 m_PlayerStartPosition;
@@ -29,6 +29,12 @@ public class Game : MonoBehaviour
     private GameObject m_PauseMenu = null;
 
     private MovementBehaviour m_MovementController = null;
+
+    // audio
+    [SerializeField] AudioSource m_AudioSourceMusic1 = null;
+    [SerializeField] AudioSource m_AudioSourceMusic2 = null;
+    [SerializeField] AudioSource m_AudioSourceChatter = null;
+    private bool m_MusicStarted = false;
 
     public int Score
     {
@@ -91,6 +97,15 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!m_MusicStarted)
+        {
+            if(!m_AudioSourceMusic1.isPlaying)
+            {
+                m_AudioSourceMusic2.Play();
+                m_MusicStarted = true;
+            }
+        }
+
         if (Input.GetButtonDown(PAUSEBUTTON))
         {
             if (m_PauseMenu == null)
@@ -107,7 +122,6 @@ public class Game : MonoBehaviour
             }
         }
     }
-
 
     public void OnDestinationArrival()
     {
@@ -150,7 +164,9 @@ public class Game : MonoBehaviour
 
     private void RemoveBottles()
     {
-        m_Score += BottleSpawner.Instance.CountAndRemoveBottles();
+        int newPoints = BottleSpawner.Instance.CountAndRemoveBottles();
+        m_Score += newPoints;
+        HUD.Instance.AddTime(newPoints * m_SecondsPerPoint);
     }
 
     public void DroppedAllBottles()
@@ -176,5 +192,12 @@ public class Game : MonoBehaviour
 
         SetPlayerDestination();
         BottleSpawner.Instance.SpawnBottles(m_Difficulty);
+
+        m_AudioSourceChatter.Play();
+    }
+
+    public void StopGameSounds()
+    {
+        m_AudioSourceChatter.Stop();
     }
 }
