@@ -7,6 +7,7 @@ public class HandMovement : MonoBehaviour
 {
     [SerializeField] private float limit = 0;
     [SerializeField] float Sensitivity = 1;
+
     GameObject Root;
     // Start is called before the first frame update
     void Start()
@@ -59,5 +60,11 @@ public class HandMovement : MonoBehaviour
             tempRotZ -= 360;
         }
         */
+    }
+
+    void ResetHandRotation()
+    {
+        Root.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
     }
 }
