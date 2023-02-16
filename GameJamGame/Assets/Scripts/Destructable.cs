@@ -14,7 +14,6 @@ public class Destructable : MonoBehaviour
     {
         GameObject brokenBottle = Instantiate(m_DestroyedVersion, transform.position, transform.rotation);
         brokenBottle.transform.localScale = transform.localScale;
-
         Destroy(gameObject);
     }
 
