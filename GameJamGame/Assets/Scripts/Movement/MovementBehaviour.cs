@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class MovementBehaviour : MonoBehaviour
 {
     private DestinationNode m_CurrentDest = null;
+    private DestinationNode m_PlayerNode = null;
     //public Vector3 m_GoalPosition;
     public Vector3 GetGoal()
     {
@@ -37,6 +38,7 @@ public class MovementBehaviour : MonoBehaviour
     {
         m_Agent.isStopped = false; //Agent start not being able to move
         m_Agent.speed = speed; //Setting the movement speed
+        m_PlayerNode = GetComponent<DestinationNode>();
     }
 
     private void Update()
@@ -66,7 +68,8 @@ public class MovementBehaviour : MonoBehaviour
 
     public void ReturnToStart()
     {
-
+        m_CurrentDest = m_PlayerNode;
+        m_Agent.SetDestination(m_PlayerNode.transform.position);
     }
 
     private void SetDestination()

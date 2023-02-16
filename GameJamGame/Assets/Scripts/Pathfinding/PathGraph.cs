@@ -63,6 +63,7 @@ public class PathGraph : MonoBehaviour
     {
         if (node)
         {
+            if (node.Difficulty < 0) return;
             m_Destinations[node.Difficulty].Add(node);
         }
     }
@@ -71,21 +72,25 @@ public class PathGraph : MonoBehaviour
     {
         if (node)
         {
+            if (node.Difficulty < 0) return;
             m_Destinations[node.Difficulty].Remove(node);
         }
     }
 
     public void RegisterNode(PathNode node)
     {
-        if (!m_PathGraph.Contains(node))
+        if (!m_PathGraph.Contains(node) && node.AddToGraph)
         {
             m_PathGraph.Add(node);
         }
     }
 
     public void UnregisterNode(PathNode node)
-    {       
-        m_PathGraph.Add(node);  
+    {
+        if (node.AddToGraph)
+        {
+            m_PathGraph.Add(node);
+        }
     }
 
     public DestinationNode GetRandomDestinationForDifficulty(int difficulty)

@@ -8,6 +8,13 @@ public class PathNode : MonoBehaviour
     [SerializeField]
     protected List<GameObject> m_NodeObjects;
     protected List<PathNode> m_Nodes;
+
+    [SerializeField]
+    protected bool m_AddToGraph = true;
+    public bool AddToGraph
+    {
+        get { return m_AddToGraph; }
+    }
     // Start is called before the first frame update
 
     public List<PathNode> Nodes
