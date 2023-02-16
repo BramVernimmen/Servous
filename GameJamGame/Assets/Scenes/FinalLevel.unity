@@ -15402,7 +15402,6 @@ MonoBehaviour:
   m_NodeObjects:
   - {fileID: 426040506}
   - {fileID: 475012169}
-  - {fileID: 481591046}
 --- !u!1001 &482461557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57534,7 +57533,7 @@ PrefabInstance:
       objectReference: {fileID: 1601024492}
     - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_Difficulty
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6632909330184641909, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_HandMovement
