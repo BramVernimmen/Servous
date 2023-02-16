@@ -107,7 +107,7 @@ public class BottleSpawner : MonoBehaviour
             position.y -= 0.2f;
 
             bool goodPosition = false;
-            int maxAttempts = 10;
+            int maxAttempts = 20;
 
             while(!goodPosition)
             {

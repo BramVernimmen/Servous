@@ -57600,7 +57600,7 @@ PrefabInstance:
       objectReference: {fileID: 1601024492}
     - target: {fileID: 7930004594038514482, guid: d6209ef870f04d14084a33160bea76fa, type: 3}
       propertyPath: m_MinBottleDistance
-      value: 0.07
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6209ef870f04d14084a33160bea76fa, type: 3}

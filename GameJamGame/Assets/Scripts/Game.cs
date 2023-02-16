@@ -116,7 +116,7 @@ public class Game : MonoBehaviour
             if (m_PauseMenu == null)
             {
                 m_PauseMenu = Instantiate(m_PausePrefab);
-                Debug.Log("Paused");
+                //Debug.Log("Paused");
             }
             else
             {
@@ -190,7 +190,7 @@ public class Game : MonoBehaviour
 
     public void StartNewGame()
     {
-        Debug.Log("new game started");
+        //Debug.Log("new game started");
 
         m_CurrentDifficulty = m_Difficulty;
         m_Score = 0;
