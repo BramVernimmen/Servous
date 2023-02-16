@@ -5,14 +5,16 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField]
-    private int m_Difficulty = 1;
+    private int m_Difficulty = 0;
     private int m_CurrentDifficulty = 0;
+    private bool m_RandomDifficulty = false;
 
     private int m_Score;
 
     [SerializeField] private GameObject m_Player;
     private Vector3 m_PlayerStartPosition;
     private Quaternion m_PlayerStartRotation;
+    [SerializeField] HandMovement m_HandMovement;
 
     [SerializeField] private GameObject m_StartPrefab = null;
     [SerializeField] private GameObject m_PausePrefab = null;
@@ -138,11 +140,29 @@ public class Game : MonoBehaviour
     public void StartNewGame()
     {
         Debug.Log("new game started");
+
+        if(m_RandomDifficulty == false)
+        {
+            ++m_Difficulty;
+            if(m_Difficulty == 5)
+            {
+                m_RandomDifficulty = true;
+            }
+        }
+
+        if(m_RandomDifficulty == true)
+        {
+            m_Difficulty = Random.Range(1, 5);
+        }
+
         m_CurrentDifficulty = m_Difficulty;
         m_Score = 0;
 
+        BottleSpawner.Instance.CountAndRemoveBottles();
+
         m_Player.transform.position = m_PlayerStartPosition;
         m_Player.transform.rotation = m_PlayerStartRotation;
+        m_HandMovement.ResetHandRotation();
 
         SetPlayerDestination();
         BottleSpawner.Instance.SpawnBottles(m_Difficulty);

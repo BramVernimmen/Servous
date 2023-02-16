@@ -10,18 +10,18 @@ public class HandMovement : MonoBehaviour
 
     GameObject Root;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Root = transform.Find("Root").gameObject.transform.Find("PlateRoot").gameObject;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         HandleMovementInput();
     }
 
-    void HandleMovementInput()
+    private void HandleMovementInput()
     {
         float xInput = -Input.GetAxis("Mouse Y") * Sensitivity * Time.timeScale;
         float yInput = Input.GetAxis("Mouse X") * Sensitivity * Time.timeScale;
@@ -62,7 +62,7 @@ public class HandMovement : MonoBehaviour
         */
     }
 
-    void ResetHandRotation()
+    public void ResetHandRotation()
     {
         Root.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
 
