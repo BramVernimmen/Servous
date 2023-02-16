@@ -5,14 +5,19 @@ using UnityEngine.AI;
 
 public class MovementBehaviour : MonoBehaviour
 {
-    public Vector3 m_GoalPosition;
+    private DestinationNode m_CurrentDest = null;
+    //public Vector3 m_GoalPosition;
     public Vector3 GetGoal()
     {
-        return m_GoalPosition;
+        if (m_CurrentDest != null)
+        {
+            return m_CurrentDest.transform.position;
+        }
+        return Vector3.zero;
     }
-    public void SetGoal(Vector3 goalPosition)
+    public void SetGoal(DestinationNode node)
     {
-        m_GoalPosition = goalPosition;
+        m_CurrentDest = node;
         //print(m_GoalPosition);
         m_ArrivedAtDestination = false;
         SetDestination();
@@ -23,7 +28,7 @@ public class MovementBehaviour : MonoBehaviour
     //temp for testing
     public Camera cam;
 
-    [Range(0.0f, 10000.0f)] //Setting the speed in inspector with a slider with range 0 - 15
+    [Range(0.0f, 10.0f)] //Setting the speed in inspector with a slider with range 0 - 15
     public float speed = 1.0f;
     private float m_AcceptanceRadius = 0.25f;
     private bool m_ArrivedAtDestination = false;
@@ -31,7 +36,6 @@ public class MovementBehaviour : MonoBehaviour
     private void Start()
     {
         m_Agent.isStopped = false; //Agent start not being able to move
-        
         m_Agent.speed = speed; //Setting the movement speed
     }
 
@@ -41,11 +45,10 @@ public class MovementBehaviour : MonoBehaviour
         {
             m_Agent.isStopped = !m_Agent.isStopped;
         }
-        tempPositionSetting(); //temp way of setting a destination
         if (HasArrivedAtNode(transform.position, m_Agent.destination))
         {
-
-            if (HasArrivedAtNode(transform.position, m_GoalPosition) && !m_ArrivedAtDestination)
+            if (m_CurrentDest == null) return;
+            if (HasArrivedAtNode(transform.position, m_CurrentDest.transform.position) && !m_ArrivedAtDestination)
             {
                 Game.Instance.OnDestinationArrival();
                 m_ArrivedAtDestination = true;
@@ -55,11 +58,20 @@ public class MovementBehaviour : MonoBehaviour
                 SetDestination();
             }
         }
+        if (m_ArrivedAtDestination)
+        {
+
+        }
+    }
+
+    public void ReturnToStart()
+    {
+
     }
 
     private void SetDestination()
     {
-        Vector3 nextNodePos = PathGraph.Instance.GetNextPathPoint(m_Agent.transform.position, m_AcceptanceRadius, m_GoalPosition);
+        Vector3 nextNodePos = PathGraph.Instance.GetNextPathPoint(m_Agent.transform.position, m_AcceptanceRadius, m_CurrentDest.transform.position);
         m_Agent.SetDestination(nextNodePos); //Setting the destination   
     }
 
@@ -79,7 +91,7 @@ public class MovementBehaviour : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log("Raycast");
-                m_GoalPosition = hit.point;
+                //m_GoalPosition = hit.point;
             }
         }
     }
