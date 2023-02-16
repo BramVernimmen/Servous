@@ -62,7 +62,11 @@ public class MovementBehaviour : MonoBehaviour
         }
         if (m_ArrivedAtDestination)
         {
-
+            Vector3 targetDir = m_CurrentDest.transform.forward;
+            float speed = 2.5f;
+            float singleStep = speed * Time.deltaTime;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDir, singleStep, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
         }
     }
 
