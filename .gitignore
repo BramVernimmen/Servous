@@ -6,6 +6,10 @@
 */Library/
 */Logs/
 */UserSettings/
+*/obj/
+*/Build/
+*/Builds/
+*/MemoryCaptures/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -62,6 +66,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-*.log
 *.vsconfig
-*.cache
