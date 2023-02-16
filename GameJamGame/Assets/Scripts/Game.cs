@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     private float returnTimer = 1.5f;
     private const string METHOD_SETDESTINATION = "SetPlayerDestination";
     private const string METHOD_REMOVEBOTTLES = "RemoveBottles";
+    private bool m_DroppedBottles = false;
 
     private GameObject m_PauseMenu = null;
 
@@ -109,10 +110,15 @@ public class Game : MonoBehaviour
 
     public void OnDestinationArrival()
     {
-        if (m_CurrentDifficulty > 0)
+        if(m_DroppedBottles)
         {
             m_CurrentDifficulty = 0;
-            Invoke(METHOD_REMOVEBOTTLES, 1f);
+            m_DroppedBottles = false;
+        }
+        else if (m_CurrentDifficulty > 0)
+        {
+            m_CurrentDifficulty = 0;
+            Invoke(METHOD_REMOVEBOTTLES, 1.0f);
         }
         else
         {
@@ -135,6 +141,7 @@ public class Game : MonoBehaviour
     public void DroppedAllBottles()
     {
         m_MovementController.SetGoal(m_Player.transform.position);
+        m_DroppedBottles = true;
     }
 
     public void StartNewGame()
